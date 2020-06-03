@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="icon" href="../images/buleTV_easyicon_net_16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../tu/iconfont.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <div class="bili"><img src="../images/login_logo2.png" alt=""></div>
+        <ul class="headText">
+            <li><a href="index.html">主站</a><span class="iconfont icon-jiantou9"></span></li>
+            <li>番剧</li>
+            <li>游戏中心</li>
+            <li>直播</li>
+            <li>会员购</li>
+            <li>漫画</li>
+            <li>赛事</li>
+            <li><span class="iconfont icon-shouji"></span>下载APP</li>
+        </ul>
+        <input value="B站最冷的视频！" class="sou" type="text">
+        <div class="jing">&nbsp;&nbsp;&nbsp;<span class="iconfont icon-fangdajing"></span></div>
+        <div class="tougao">投稿</div>
+        <ul class="headText2">
+            <li>登陆</li>
+            <li>注册</li>
+        </ul>
+        <div class="touxiang"><img src="../images/touxiang.png" alt=""></div>
+    </div>
+    <div id="biglogo"><img src="../images/login_logo.png" alt=""></div>
+    <div id="zhongxin">
+        <span class="login">登录</span>
+        <div id="zuoxian"></div>
+        <div id="youxian"></div>
+        <div class="zhuce">
+            <div class="zuoerweitu">
+                <img src="../images/erweima.png" alt="">
+            </div>
+            <div id="zhongxian">
+            </div>
+            <div id="form-list">
+                <div class="mi"><span>密码登陆</span><span>短信登录</span></div>
+                <input  name="username" placeholder="你的手机号/邮箱" class="reginput" type="text">
+                <input  name="userpwd" class="pwdinput" placeholder="密码" type="password">
+                <img class="gou" src="../images/图层 1.png" alt=""><span
+                    class="kuang"><span>记住我</span>&nbsp;&nbsp;<span>不是自己的电脑上不要勾选此选项</span><span>无法验证？</span><span>忘记密码？</span></span>
+                <span class="loginClick"><span name="logingo">登陆</span><span name="resgo">注册</span></span>
+                <p class="weip"><img class="weibo" src="../images/weibo.png" alt=""><span
+                        class="weibozi">微博账号注册</span><img class="qqimg" src="../images/QQ.png" alt=""><span
+                        class="qqzi">QQ账号注册</span></p>
+            </div>
+        </div>
+    </div>
+    <p class="tongyi">登陆即代表你同意<span>用户协议</span>和<span>隐私协议</span></p>
+    <div id="yewei">
+        <div id="xiabanxin">
+            <div class='xiazuobi'>
+                <p>bilibili</p>
+                <ul class="guanyuwomen">
+                    <li>关于我们</li>
+                    <li>联系我们</li>
+                    <li>加入我们</li>
+                    <li>友情链接</li>
+                    <li>bilibili认证</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+            <div class="xiazuobi xaiazhongbi">
+                <p>bilibili</p>
+                <ul class="guanyuwomen zhuanche">
+                    <li>帮助中心</li>
+                    <li>高级弹幕</li>
+                    <li>活动专页</li>
+                    <li>侵权申诉</li>
+                    <li>活动中心</li>
+                    <li>用户反馈论坛</li>
+                    <li>壁纸站</li>
+                    <li>名人堂</li>
+                    <li>专车号服务中心</li>
+                </ul>
+            </div>
+            <div class="ping">
+                <img src="../images/平.png" alt="">
+            </div>
+            <div class="l zuidixia">
+                <img src="../images/图层 7.png" alt="">
+            </div>
+            <img class="xiazi" src="../images/图层 77.png" alt="">
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/my_utils.js"></script>
+    <script>
+        $('[name="resgo"]').click(function(){
+            window.location.href = "./tow_res.html";
+        })
+        $('[name="logingo"]').click(function () {
+            let username = $('[name="username"]').val();
+            let userpwd = $('[name="userpwd"]').val();
+            if(userpwd ==  ""){
+                alert('你密码呢？');
+                return false;
+            }
+            $.ajax({
+                url: "../PHP/tow_login.php",
+                type: 'post',
+                data: { userName: username, userPwd: userpwd },
+                dataType: 'json',
+                success: function (res) {
+                    if (res == '1') {
+                        window.alert('您登录成功,哪来的回哪去');
+
+                        let str = decodeURIComponent(window.location.search);
+                        str = str.substr(1);
+
+                        window.location.href = str;
+
+                        setCookie('login' , 1 , 7*24*60*60);
+                    } else {
+                        window.alert('登陆失败')
+                    }
+                }
+            })
+        })
+        $(window).keyup(function (e) {
+            if(e.keyCode == 13){
+            let username = $('[name="username"]').val();
+            let userpwd = $('[name="userpwd"]').val();
+            if(userpwd ==  ""){
+                alert('你密码呢？');
+                return false;
+            }
+            $.ajax({
+                url: "../PHP/tow_login.php",
+                type: 'post',
+                data: { userName: username, userPwd: userpwd },
+                dataType: 'json',
+                success: function (res) {
+                    if (res == '1') {
+                        window.alert('您登录成功,哪来的回哪去');
+
+                        let str = decodeURIComponent(window.location.search);
+                        str = str.substr(1);
+
+                        window.location.href = str;
+
+                        setCookie('login' , 1 , 7*24*60*60);
+                    } else {
+                        window.alert('登陆失败')
+                    }
+                }
+            })
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

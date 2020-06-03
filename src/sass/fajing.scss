@@ -1,0 +1,57 @@
+.box{
+    width: 900px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    margin: 40px auto;
+}
+
+.show{
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.mask{
+    width: 200px;
+    height: 200px;
+    background:#f8e8a1;
+    opacity: .6;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+
+.list{
+    width: 400px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list li{
+    margin: 20px 20px 0 0;
+    width: 100px;
+    height: 100px;
+    img{
+        width: 100%;
+    }
+}
+
+.list li.active{
+    border:3px solid black;
+}
+
+.glass{
+    width: 800px;
+    height: 800px;
+    border: 2px solid #000;
+    position: absolute;
+    top:0;
+    left: 450px;
+    background: url('./images/1.big.jpg') no-repeat 0 0;
+    background-size: 1600px ;
+    display: none;
+}

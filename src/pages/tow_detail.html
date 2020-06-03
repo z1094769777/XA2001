@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 正确显示来源于网络的图片 -->
+    <meta name="referrer" content="never">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="icon" href="../images/buleTV_easyicon_net_16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/tubiao/iconfont.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/fajing.css">
+    <style>
+        .clear:after {
+            content: ".";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+            visibility: hidden
+        }
+        .taotu img {
+            margin-right: 540px
+        }
+
+        .xiangqing {
+            border: 1px solid #dfdfdf;
+            width: 1040px;
+            margin: 0 auto;
+            position: relative;
+            float: left;
+            left: 150px;
+        }
+
+        .xiangqing>.shangshang {
+            height: 38px;
+            top: -3px;
+            width: 90px;
+            border-top: 2px solid #ff0036;
+            float: left;
+            border-left: 1px solid #cfbfb1;
+            border-right: 1px solid #cfbfb1;
+            position: relative;
+            color: #ff0036;
+            font-size: 11px;
+            text-align: center;
+            line-height: 38px;
+        }
+
+        .xiangqing>.shangshang>span {
+            position: absolute;
+            top: -19px;
+            left: 38px;
+        }
+
+        .xiangqing>.jiji {
+            width: 113px;
+            height: 14px;
+            float: left;
+            font-size: 10px;
+            border-right: dashed 1px #d2d2d2;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .xiangqing>.shoushou {
+            float: left;
+            position: absolute;
+            font-size: 11px;
+            color: #989898;
+            left: 925px;
+            top: 12px;
+        }
+
+        .xiangqing>.shoushou>img {
+            position: absolute;
+            top: -2px;
+            left: 70px;
+        }
+
+        .xiangqing>.dixian {
+            width: 100%;
+            border: solid 1px #d2d2d2;
+            position: relative;
+            top: 42px;
+        }
+        .an{
+		margin-bottom:3px;
+		width:16px;
+		height:12px;
+		border:1px solid #a7a6ac;
+		cursor:pointer;
+		line-height: 12px;
+		text-align: center;}
+    </style>
+</head>
+
+<body>
+    <div class="het">
+        <ul>
+            <li>tb15487125<span class="iconfont icon-xiajiantou"></span></li>
+            <li>手机逛淘宝</li>
+            <li>淘宝网首页</li>
+            <li>我的淘宝<span class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span>购物车<span
+                    style="color:#ff4400; margin-right:10px">1</span><span class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-shoucang"></span>收藏夹</li>
+            <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span>商品分类</li>
+            <li><span style="margin-left: 10px; margin-right:10px">|</span> 千牛卖家中心<span
+                    style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span></li>
+            <li>联系客服<span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="margin-left: 10px; margin-right:10px;color:#ff4400;"
+                    class="iconfont icon-caidan"></span>网站导航<span style="margin-left: 10px; margin-right:10px"
+                    class="iconfont icon-xiajiantou"></span></li>
+        </ul>
+    </div>
+    <div class="taotu">
+        <img src="../images/tao.png" alt="">
+        <input type="text">
+        <div>搜索</div>
+    </div>
+    <div id="big">
+        
+        
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/my_utils.js"></script>
+    <script src="../tu/iconfont.css"></script>
+    <script type="text/javascript">
+        //定义一个变量存储 ajax 请求结果
+        let result = [];
+
+        //获取地址栏中的数据信息
+        let str = decodeURIComponent(window.location.search.substr(1));
+        const arr = str.split('=');
+
+        $.ajax({
+            url: '../PHP/tow_detail.php',
+            type: 'post',
+            data: { goods_id: arr[1] },
+            dataType: 'json',
+            success: function (res) {
+                console.log(res);
+                // 对resultf赋值
+                result = res;
+
+                let str = '';
+                str = `<div id="left">
+                        <div class="box">
+                            <!-- 图片显示区域 -->
+                            <div class="show">
+                                <!-- 显示的图片 -->
+                                <img style="width:400px" src="${res.goods_big_logo}" alt="">
+                                <!-- 图片区域的遮盖层 -->
+                                <div class="mask"></div>
+                            </div>
+                            <!-- 图片列表区域 -->
+                            <ul class="list">
+                                <li class="active"><img src="${res.goods_small_logo}" alt=""></li>
+                                <li><img src="${res.goods_small_logo}" alt=""></li>
+                            </ul>
+                            <!-- 放大镜区域 -->
+                            <div class="glass"></div>
+                        </div>
+
+                        </div>
+                        <div id="right">
+                            <div class="xxms">
+                                <h3 class="xxmsz">${res.goods_name}</h1>
+                            </div>
+                            <div id="jgk">
+                                <div class="jgzk">
+                                    <div class="jghz">价格</div>
+                                    <div class="fh">￥</div>
+                                    <div class="jgz">${res.goods_price}</div>
+                                </div>
+                            </div>
+                            <div id="yf">
+                                <div id="yfz">运费</div>
+                                <div id="dzk">
+                                    <div id="dzpj">
+                                        <span>我家</span>至
+                                        <span>你家</span>
+                                        <span>快递：0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="xlpf">
+                                <div class="xlpf">
+                                    <span class="xlpfz">月销量</span>
+                                    <span class="xlpfs">94</span>
+                                </div>
+                                <div class="xlpf" id="pj">
+                                    <span class="xlpfz">累计评价</span>
+                                    <span class="xlpfs">812</span>
+                                </div>
+                                <div class="xlpf">
+                                    <span class="xlpfz">送天猫积分</span>
+                                    <span id="xlpfs">46</span>
+                                </div>
+                            </div>
+                            <div id="spsl">
+                                <div id="slz">数量</div>
+                                <input id="slsrk" type="text" placeholder="1"  value="">
+                                <div id="ank">
+                                    <button name="up1" class="an">+</button>
+                                    <button class="an">-</button>
+                                </div>
+                                <div id="slzl">件</div>
+                                <div id="kcsl">库存件</div>
+                            </div>
+                            <div id="czk">
+                                <div name="goCar" id="czn">立即购买</div>
+                                <div name="inCar" id="czn2">加入购物车</div>
+                            </div>
+                            <div id="fwk">
+                                <div id="fwkk">
+                                    <div id="fwz">服务承诺</div>
+                                    <div class="fwz">正品保证</div>
+                                    <div class="fwz">极速退款</div>
+                                    <div class="fwz">赠运费险</div>
+                                    <div id="fwzt">七天无理由退换</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xiangqing clear">
+                            <div class="shangshang ">
+                                商品详情
+                                <span><img src="../images/hongjiantou.png" alt=""></span>
+                            </div>
+                            <div class="jiji">积累评价</div>
+                            <div class="shoushou">
+                                手机购买
+                                <img src="../images/xiaoxiaoweima.png" alt="">
+                            </div>
+                            <div class="dixian">${res.goods_introduce}</div>
+
+                        </div>`;
+                        $('#big').html(str);
+            }
+        })
+        //直接购买
+        $('#big').on('click' , '[name="goCar"]' ,function(){
+            let cookieObj = getCookie(document.cookie)
+            if(cookieObj.login === undefined){
+                let bool = window.confirm('您还没有登录，点击确定，跳转登录页面');
+                if(bool == true){
+                    window.location.href = `./tow_login.html?${window.location.href}`;
+                }else{
+                    return false;
+                }
+            }else if(cookieObj.login === '1'){
+                window.location.href = './tow_cart.html';
+
+                if(localStorage.getItem('cart') === null  ){
+                    result.num = 1;
+                    result.buy = true ;
+                    var arr = [];
+                    arr.push(result);
+
+                }else{
+                    let bool = true;
+
+                    var arr = JSON.parse(localStorage.getItem('cart'));
+
+                    arr.forEach(function(item){
+                        if(item.goods_id === result.goods_id){
+                            item.num++;
+                            bool = false;
+                        }
+                    })
+                    if(bool === true){
+                        result.buy = true;
+                        result.num = 1;
+                        arr.push(result);
+                    }
+                    
+                }
+
+                localStorage.setItem('cart' ,JSON.stringify(arr));
+                
+            }
+        })
+        
+
+        //加入购物车点击事件
+        $('#big').on('click' , '[name="inCar"]' ,function(){
+            // 判断是否登录
+            let cookieObj = getCookie(document.cookie)
+            if(cookieObj.login === undefined){
+                let bool = window.confirm('您还没有登录，点击确定，跳转登录页面');
+                if(bool == true){
+                    window.location.href = `./tow_login.html?${window.location.href}`;
+                }else{
+                    return false;
+                }
+            }else if(cookieObj.login === '1'){
+                // window.location.href = './tow_cart.html';
+
+                if(localStorage.getItem('cart') === null  ){
+                    result.num = $('#slsrk').val();
+                    result.buy = true ;
+                    var arr = [];
+                    arr.push(result);
+
+                }else{
+                    let bool = true;
+
+                    var arr = JSON.parse(localStorage.getItem('cart'));
+
+                    arr.forEach(function(item){
+                        if(item.goods_id === result.goods_id){
+                            item.num++;
+                            bool = false;
+                        }
+                    })
+                    if(bool === true){
+                        result.buy = true;
+                        result.num = 1;
+                        arr.push(result);
+                    }
+                    
+                }
+
+                localStorage.setItem('cart' ,JSON.stringify(arr));
+                let bool77 = window.confirm('添加成功，确定前往购物车');
+                if(bool77 == true){
+                    window.location.href = "./tow_cart.html";
+                }
+            }
+        })
+
+        // 放大镜
+        $('#big').on('mousemove' ,'#show-box' ,function(event){
+            $('#show-box').style.display = "block";
+            let e = event || window.event;
+        // 数据距离事件源的横向位置-镜子宽度的一半
+        let left1 = (e.pageX-this.offsetLeft)-$("#mirror-box").offsetWidth/2;
+        let top1 = (e.pageY-this.offsetTop)-$("#mirror-box").offsetHeight/2;
+
+        //2、边界处理
+        if(left1<0){
+            left1=0;
+        }else if(left1>this.offsetWidth-$("#mirror-box").offsetWidth){
+            left1=this.offsetWidth-$("#mirror-box").offsetWidth
+        }
+        
+        if(top1<0){
+            top1=0;
+        }else if(top1>this.offsetHeight-$("#mirror-box").offsetHeight){
+            top1=this.offsetHeight-$("#mirror-box").offsetHeight;
+        }
+
+        // 二、外观呈现
+        $("#mirror-box").style.left = left1+"px";
+        $("#mirror-box").style.top = top1+"px" ;
+
+        $("#show-box").style.backgroundPosition = `${-2*left1}px ${-2*top1}px`;
+        })
+
+        
+        
+    </script>
+</body>
+
+</html>

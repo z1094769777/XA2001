@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="icon" href="../images/buleTV_easyicon_net_16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/tubiao/iconfont.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/goCar.css">
+    <style>
+        #sousuokuang {
+            top: -16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="het">
+        <ul>
+            <li>tb15487125<span class="iconfont icon-xiajiantou"></span></li>
+            <li>手机逛淘宝</li>
+            <li>淘宝网首页</li>
+            <li>我的淘宝<span class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span>购物车<span
+                    style="color:#ff4400; margin-right:10px">1</span><span class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-shoucang"></span>收藏夹</li>
+            <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span>商品分类</li>
+            <li><span style="margin-left: 10px; margin-right:10px">|</span> 千牛卖家中心<span
+                    style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span></li>
+            <li>联系客服<span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span></li>
+            <li><span style="margin-left: 10px; margin-right:10px;color:#ff4400;"
+                    class="iconfont icon-caidan"></span>网站导航<span style="margin-left: 10px; margin-right:10px"
+                    class="iconfont icon-xiajiantou"></span></li>
+        </ul>
+    </div>
+    <div class="taotu">
+        <img src="../images/taotao1.png" alt="">
+        <input id="sousuokuang" type="text">
+        <div>搜索</div>
+    </div>
+
+    <div class="clear" id="banxin">
+        <div class="quanbu">全部商品</div>
+        <div class="jiangjia">降价商品</div>
+        <div class="kucun">库存紧张</div>
+        <div class="huixian"></div>
+    </div>
+
+    <div id="list-shoop">
+        <!-- <div class="quanxuan">
+            <input type="checkbox"  name="" id="">
+            <span class="quaqua">全选</span>
+            <span class="xiangqingshang">商品详情</span>
+            <span class="onejia">单价</span>
+            <span class="numberliang">数量</span>
+            <span class="numberzong">金额</span>
+            <span class="xianzai">操作</span>
+        </div>
+        <div class="duanpuming">
+            <input type="checkbox" name="" id="">
+            <img class="tianmaotu" src="../images/tianmaotu.png" alt="">
+            <span class="dianpupiu">店铺：<span>小田田的小卖部^_^</span></span>
+            <img class="kefutubiao" src="../images/kufu.png" alt="">
+        </div>
+        <ul id="list-waibian"> -->
+        <!-- <li>
+                <input type="checkbox" name="" id="">
+                <div class="list-img"><img src="../images/tiantian.png" alt=""></div>
+                <span class="shangpinmiaoshu1">商品描述商品描述商品描述商品描述商品描述</span>
+                <img class="carimg" src="../images/gocarimg.png" alt="">
+                <span class="buyaojia">￥399.00</span>
+                <span class="nowmane">￥199.00</span>
+                <button class="jianjian">-</button>
+                <button class="numberdis" disabled>1</button>
+                <button class="jiajia">+</button>
+                <span class="nownumber">￥199.00</span>
+                <span class="yichushoucang">移入收藏夹</span>
+                <span class="del">删除</span>
+            </li> -->
+
+
+        <!-- </ul>
+        <div class="xiaxinxi">
+            <input class="quanxuan2" type="checkbox" name="" id="">
+            <span class="quanxuanzi2">全选</span>
+            <span class="dle2">删除</span>
+            <span class="shouchangjia2">移入收藏夹</span>
+            <span class="fenxiang">分享</span>
+            <span class="yixuanshang">已选商品<span class="ling"> 0 </span>件</span>
+            <span class="hejiji">合计（不含运费）：<span class="zongnumber" >0.00</span></span>
+            <div class="oversuan">结 算</div>
+        </div> -->
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        //获取 信息
+        const cateArr = JSON.parse(localStorage.getItem('cart'));
+
+        setPage(cateArr)
+        function setPage(array) {
+            //存储定义变量数据
+            let NUM = 0;
+            let TYPE = 0;
+            let PAY = 0;
+            //生成页面
+            let str = `
+                <div class="quanxuan">
+                    <input name="all" type="checkbox"  name="" id="">
+                    <span  class="quaqua">全选</span>
+                    <span class="xiangqingshang">商品详情</span>
+                    <span class="onejia">单价</span>
+                    <span class="numberliang">数量</span>
+                    <span class="numberzong">金额</span>
+                    <span class="xianzai">操作</span>
+                </div>
+                <div class="duanpuming">
+                    <input type="checkbox" name="" id="">
+                    <img class="tianmaotu" src="../images/tianmaotu.png" alt="">
+                    <span class="dianpupiu">店铺：<span>小田田的小卖部^_^</span></span>
+                    <img class="kefutubiao" src="../images/kufu.png" alt="">
+                </div>
+                <ul id="list-waibian">`;
+
+            array.forEach(function (item) {
+                str += `
+                <li>
+                    <input name="checked" type="checkbox" goods_id="${item.goods_id}" ${item.buy === true ? 'checked' : ''} name="" id="">
+                    <div class="list-img"><img src="${item.goods_small_logo}" alt=""></div>
+                    <span class="shangpinmiaoshu1">${item.goods_name}</span>
+                    <img class="carimg" src="../images/gocarimg.png" alt="">
+                    <span class="buyaojia">￥399.00</span>
+                    <span class="nowmane">￥${item.goods_price}</span>
+                    <button goods_id="${item.goods_id}" name="lost" class="jianjian" ${item.num === 1 ? 'disabled' : ''} >-</button>
+                    <button class="numberdis" disabled>${item.num}</button>
+                    <button goods_id="${item.goods_id}" name="odd" class="jiajia" ${ item.num == item.goods_number ? 'disabled' : '' } >+</button>
+                    <span class="nownumber">￥${item.goods_price}</span>
+                    <span class="yichushoucang">移入收藏夹</span>
+                    <span name="del" goods_id="${item.goods_id}" class="del">删除</span>
+                </li>`;
+
+                if(item.buy === true){
+                TYPE++;
+                NUM += item.num;
+                PAY += item.num * item.goods_price;
+                }
+            })
+
+            str += `
+            </ul>
+                <div class="xiaxinxi">
+                    <input class="quanxuan2" type="checkbox" name="" id="">
+                    <span class="quanxuanzi2">全选</span>
+                    <span class="dle2">删除</span>
+                    <span class="shouchangjia2">移入收藏夹</span>
+                    <span class="fenxiang">分享</span>
+                    <span class="yixuanshang">已选商品<span class="ling"> ${NUM} </span>件</span>
+                    <span class="hejiji">合计（不含运费）：<span class="zongnumber" >${parseInt(PAY*100)/100}</span></span>
+                    <div class="oversuan">结 算</div>
+                </div>`;
+
+            $('#list-shoop').html(str);
+        };
+
+        const oDiv = document.querySelector('#list-shoop');
+        oDiv.addEventListener('click', function (e) {
+            if (e.target.getAttribute('name') === 'all') {
+                cateArr.forEach(function (item) {
+                    item.buy = !(item.buy);
+                });
+            }
+
+            // 自身 的小勾点击
+            if (e.target.getAttribute('name') === 'checked') {
+                let goods_id = e.target.getAttribute('goods_id');
+                cateArr.forEach(function (item) {
+                    if (item.goods_id === goods_id) {
+                        item.buy = $(e.target).prop('checked');
+                    }
+                })
+            }
+
+            //删除数据 我不要了
+            if (e.target.getAttribute('name') === 'del') {
+                let goods_id = e.target.getAttribute('goods_id');
+                cateArr.forEach(function (item, key) {
+                    if (item.goods_id === goods_id) {
+                        cateArr.splice(key, 1)
+                    }
+                })
+            }
+
+            //添加 按钮
+            if (e.target.getAttribute('name') === 'odd') {
+                let goods_id = e.target.getAttribute('goods_id');
+                cateArr.forEach(function (item, key) {
+                    if (item.goods_id === goods_id) {
+                        item.num++;
+                        
+                    }
+                })
+            }
+            //减少 按钮
+            if (e.target.getAttribute('name') === 'lost') {
+                let goods_id = e.target.getAttribute('goods_id');
+                cateArr.forEach(function (item, key) {
+                    if (item.goods_id === goods_id) {
+                        item.num--;
+                    }
+                })
+            }
+
+            //将新的数组写到页面中
+            setPage(cateArr);
+            localStorage.setItem('cart', JSON.stringify(cateArr));
+        })
+    </script>
+</body>
+
+</html>

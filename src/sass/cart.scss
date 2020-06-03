@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 800px;
+    border: 2px skyblue solid;
+    border-radius: 3px;
+}
+
+.box1 {
+    width: 100%;
+    height: 100px;
+    background-color: silver;
+}
+
+.but1 {
+    width: 50px;
+    height: 30px;
+    background-color: tomato;
+    color: white;
+    margin: 40px 0 0px 60px;
+}
+
+.list {
+    width: 100%;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.chart {}
+
+.biru {
+    width: 100%;
+    height: 100px;
+    border: 1px skyblue solid;
+    display: flex;
+    margin-top: 10px;
+}
+
+.right {
+    clear: both;
+    width: 100%;
+
+}
+
+.inpt1 {
+    margin: 40px 30px;
+}
+
+.minimg {
+    float: left;
+    margin-right: 10px;
+
+    width: 100px;
+}
+
+.minimg img {
+    width: 100%;
+}
+
+.biru .right p:nth-of-type(1) {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.biru .right p:nth-of-type(2) {
+    font-size: 20px;
+    color: red;
+
+}
+
+.biru .rightBUT button {
+    width: 30px;
+    height: 30px;
+}
+
+.biru .rightBUT {
+    float: right;
+    margin-right: 20px;
+}
+
+.het {
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.het ul {
+    clear: both;
+    margin-left: 270px;
+}
+
+.het ul li {
+    float: left;
+    line-height: 40px;
+    font-size: 12px;
+    color: #6c6c6c;
+}
+
+.het ul li:nth-of-type(1) {
+    margin-right: 15px;
+}
+
+.het ul li:nth-of-type(2) {
+    margin-right: 337px;
+}
+
+.het ul li:nth-of-type(3) {
+    margin-right: 20px;
+}
+
+.het ul li:nth-of-type(4) {
+    margin-right: 20px;
+}
+
+.taotu {
+    margin: 15px auto;
+    width: 1193px;
+    position: relative;
+}
+
+.taotu input {
+    height: 35px;
+    width: 425px;
+    top: 8px;
+    position: relative;
+    border: 3px solid #ff4400;
+
+}
+
+.taotu img {
+    margin-right: 540px;
+}
+
+.taotu div {
+    position: absolute;
+    right: 20px;
+    top:8px;
+    width: 88px;
+    height: 41px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-size: 20px;
+    background-color: #ff4400;
+}
+
+.buyao {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #ff4400;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.manei{
+    width: 800px;
+    height: 50px;
+    background-color: #6c6c6c;
+    line-height: 50px;
+    font-size: 14px;
+    color: #f5f5f5;
+    position: relative;
+}
+.manei .jian{
+    color: #ff4400;
+    font-weight: 600;
+   
+}
+.manei .yixuan{
+    margin-left: 320px;
+    margin-right: 50px;
+}
+.mamei .heji{
+    margin-left: 50px;
+}
+.manei .maneinum{
+    color: #ff4400;
+    font-size: 23px;
+}
+#jiesuan{
+    width: 70px;
+    height: 50px;
+    background-color: #ff4400;
+    position: absolute;
+    top: 0px;
+    left: 730px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+#container {
+    margin: 0 auto;
+    width: 800px;
+    border: 2px skyblue solid;
+    border-radius: 3px;
+}
+
+.box1 {
+    width: 100%;
+    height: 100px;
+    background-color: silver;
+}
+
+.but1 {
+    width: 50px;
+    height: 30px;
+    background-color: tomato;
+    color: white;
+    margin: 40px 0 0px 60px;
+}
+
+.list {
+    width: 100%;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.chart {}
+
+.biru {
+    width: 100%;
+    height: 100px;
+    border: 1px skyblue solid;
+    display: flex;
+    margin-top: 10px;
+}
+
+.right {
+    clear: both;
+    width: 100%;
+
+}
+
+.inpt1 {
+    margin: 40px 30px;
+}
+
+.minimg {
+    float: left;
+    margin-right: 10px;
+
+    width: 100px;
+}
+
+.minimg img {
+    width: 100%;
+}
+
+.biru .right p:nth-of-type(1) {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.biru .right p:nth-of-type(2) {
+    font-size: 20px;
+    color: red;
+
+}
+
+.biru .rightBUT button {
+    width: 30px;
+    height: 30px;
+}
+
+.biru .rightBUT {
+    float: right;
+    margin-right: 20px;
+}
+
+.het {
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.het ul {
+    clear: both;
+    margin-left: 270px;
+}
+
+.het ul li {
+    float: left;
+    line-height: 40px;
+    font-size: 12px;
+    color: #6c6c6c;
+}
+
+.het ul li:nth-of-type(1) {
+    margin-right: 15px;
+}
+
+.het ul li:nth-of-type(2) {
+    margin-right: 337px;
+}
+
+.het ul li:nth-of-type(3) {
+    margin-right: 20px;
+}
+
+.het ul li:nth-of-type(4) {
+    margin-right: 20px;
+}
+
+.taotu {
+    margin: 15px auto;
+    width: 1193px;
+    position: relative;
+}
+
+.taotu input {
+    height: 35px;
+    width: 425px;
+    top: -20px;
+    position: relative;
+    border: 3px solid #ff4400;
+
+}
+
+.taotu img {
+    margin-right: 488px;
+}
+
+.taotu div {
+    position: absolute;
+    right: 20px;
+    top:8px;
+    width: 88px;
+    height: 41px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-size: 20px;
+    background-color: #ff4400;
+}
+
+.buyao {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    width: 100px;
+    height: 30px;
+    background-color: #ff4400;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.manei{
+    width: 800px;
+    height: 50px;
+    background-color: #6c6c6c;
+    line-height: 50px;
+    font-size: 14px;
+    color: #f5f5f5;
+    position: relative;
+}
+.manei .jian{
+    color: #ff4400;
+    font-weight: 600;
+   
+}
+.manei .yixuan{
+    margin-left: 320px;
+    margin-right: 50px;
+}
+.mamei .heji{
+    margin-left: 50px;
+}
+.manei .maneinum{
+    color: #ff4400;
+    font-size: 23px;
+}
+#jiesuan{
+    width: 70px;
+    height: 50px;
+    background-color: #ff4400;
+    position: absolute;
+    top: 0px;
+    left: 730px;
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+}

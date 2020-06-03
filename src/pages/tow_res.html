@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="icon" href="../images/buleTV_easyicon_net_16.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../tu/iconfont.css">
+    <link rel="stylesheet" href="../css/res.css">
+    <style>
+        .jing {
+            position: absolute;
+            width: 47px;
+            height: 38px;
+            background-color: #e7e7e7;
+            left: 1253px;
+            line-height: 38px;
+            top: 10px;
+        }
+
+        .tingyixieyi {
+            position: absolute;
+            left: 258px;
+            top: 371px;
+            width: 20px;
+            height: 30px;
+            font-size: 20px;
+            display: inline-block;
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <div class="bili"><img src="../images/login_logo2.png" alt=""></div>
+        <ul class="headText">
+            <li><a href="index.html">主站</a><span class="iconfont icon-jiantou9"></span></li>
+            <li>番剧</li>
+            <li>游戏中心</li>
+            <li>直播</li>
+            <li>会员购</li>
+            <li>漫画</li>
+            <li>赛事</li>
+            <li><span class="iconfont icon-shouji"></span>下载APP</li>
+        </ul>
+        <input value="B站最冷的视频！" class="sou" type="text">
+        <div class="jing">&nbsp;&nbsp;&nbsp;<span class="iconfont icon-fangdajing"></span></div>
+        <div class="tougao">投稿</div>
+        <ul class="headText2">
+            <li>登陆</li>
+            <li>注册</li>
+        </ul>
+        <div class="touxiang"><img src="../images/touxiang.png" alt=""></div>
+    </div>
+    <div id="biglogo"><img src="../images/login_logo.png" alt=""></div>
+    <div id="zhongxin">
+        <span class="login">注册</span>
+        <div id="zuoxian"></div>
+        <div id="youxian"></div>
+        <div class="regbox">
+            <input name="us" type="text" placeholder="昵称" name="" id="">
+            <input name="up1" type="password" placeholder="密码 （6-16个字符组成，区分大小写）" name="" id="">
+            <select name="city">
+                <option value="中国大陆">中国大陆</option>
+                <option value="美国">美国</option>
+                <option value="中国香港">中国香港</option>
+                <option value="中国台湾">中国台湾</option>
+                <option value="日本">日本</option>
+                <input placeholder="填写常用手机号" type="text" name="" id="">
+                <input placeholder="请输入短信验证码" type="text" name="" id="">
+                <div class="zhuceshouji">点击获取</div>
+                <input class="tongyikuang" type="checkbox" name="xieyi" id="">
+                <span class="tongyizi"><span>我已同意</span><span class="bilidanmu">《哔哩哔哩弹幕网用户使用协议》</span>和<span
+                        class="yinsi">《哔哩哔哩隐私政策》</span></span>
+                <div name="resgo" class="regbut">注册</div>
+                <span class="yiyouzhanghao">已有账号，直接登录></span>
+                <input class="inpyanzhengma" type="text" name="vc2" placeholder="请您输入验证码">
+                <span class="yanzhengma" name="vc"></span>
+                <div name="reset" class="kanbuqing">看不清</div>
+                <span class="tingyixieyi"></span>
+        </div>
+    </div>
+    </div>
+    <div id="yewei">
+        <div id="xiabanxin">
+            <div class='xiazuobi'>
+                <p>bilibili</p>
+                <ul class="guanyuwomen">
+                    <li>关于我们</li>
+                    <li>联系我们</li>
+                    <li>加入我们</li>
+                    <li>友情链接</li>
+                    <li>bilibili认证</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+            <div class="xiazuobi xaiazhongbi">
+                <p>bilibili</p>
+                <ul class="guanyuwomen zhuanche">
+                    <li>帮助中心</li>
+                    <li>高级弹幕</li>
+                    <li>活动专页</li>
+                    <li>侵权申诉</li>
+                    <li>活动中心</li>
+                    <li>用户反馈论坛</li>
+                    <li>壁纸站</li>
+                    <li>名人堂</li>
+                    <li>专车号服务中心</li>
+                </ul>
+            </div>
+            <div class="ping">
+                <img src="../images/平.png" alt="">
+            </div>
+            <div class="l zuidixia">
+                <img src="../images/图层 7.png" alt="">
+            </div>
+            <img class="xiazi" src="../images/图层 77.png" alt="">
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/my_ajax.js"></script>
+    <script>
+
+        $('[name="resgo"]').click(function () {
+            let usernameVal = $('[name="us"]').val();
+            let userpwd1Val = $('[name="up1"]').val();
+            let uservc = $('[name="vc2"]').val();
+            let oXyi = $('[name="xieyi"]').prop('checked')
+
+
+            console.log(usernameVal, userpwd1Val, uservc);
+            if (oXyi == true) {
+                $('.tingyixieyi').html('√');
+            }
+            if (oXyi == false) {
+                $('.tingyixieyi').html('×');
+                window.alert('请同意协议！');
+                return false;
+            }
+
+            if (uservc.toLowerCase() !== $('[name="vc"]').html().toLowerCase()) {
+                window.alert('验证码不正确');
+                return false;
+            }
+
+
+
+            $.ajax({
+                url: "../PHP/tow_res.php",
+                type: 'post',
+                data: { userName: usernameVal, userPwd: userpwd1Val },
+                dataType: 'json',
+                success: function (res) {
+                    if (res == '1') {
+                        window.alert('注册成功！')
+                        window.location.href = "./index.html";
+                    } else {
+                        window.alert('注册失败');
+                    }
+                }
+            })
+        })
+
+
+        //验证码
+        var str = '0123456789abcdefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ';
+        var oVc = document.querySelector('[name="vc"]');
+        oVc.innerHTML = setVc(str);
+        var oBtnReset = document.querySelector('[name="reset"]');
+        oBtnReset.onclick = function () {
+            oVc.innerHTML = setVc(str);
+        }
+
+
+
+
+        function setVc(str) {
+            var vc = '';
+            while (vc.length < 6) {
+                var num = parseInt(Math.random() * str.length);
+
+                if (vc.indexOf(str[num]) === -1) {
+                    vc += str[num];
+                }
+            }
+            return vc;
+        }
+    </script>
+</body>
+
+</html>
