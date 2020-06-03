@@ -12,6 +12,7 @@
     <style>
         #sousuokuang {
             top: -16px;
+           
         }
     </style>
 </head>
@@ -125,7 +126,7 @@
 
             array.forEach(function (item) {
                 str += `
-                <li>
+                <li name="llli">
                     <input name="checked" type="checkbox" goods_id="${item.goods_id}" ${item.buy === true ? 'checked' : ''} name="" id="">
                     <div class="list-img"><img src="${item.goods_small_logo}" alt=""></div>
                     <span class="shangpinmiaoshu1">${item.goods_name}</span>
@@ -214,6 +215,24 @@
             //将新的数组写到页面中
             setPage(cateArr);
             localStorage.setItem('cart', JSON.stringify(cateArr));
+        })
+
+        oDiv.addEventListener('click' , function(){
+            if($(this).children().eq(2).children().eq(0).children().eq(0).attr('checked') == 'checked'){
+                $(this).children().eq(2).children().eq(0).css({
+                    'background': 'rgb(255,248,225)'
+                })
+            }
+            if($(this).children().eq(2).children().eq(0).children().eq(0).attr('checked') == 'checked'){
+                $(this).children().eq(2).children().eq(1).css({
+                    'background': 'rgb(255,248,225)'
+                })
+            }
+            if($(this).children().eq(2).children().eq(0).children().eq(0).attr('checked') == 'checked'){
+                $(this).children().eq(2).children().eq(2).css({
+                    'background': 'rgb(255,248,225)'
+                })
+            }
         })
     </script>
 </body>

@@ -17,7 +17,8 @@
         .taotu img {
             margin-right: 540px
         }
-        #M-box{
+
+        #M-box {
             position: relative;
             top: 0px;
             left: 700px;
@@ -30,36 +31,44 @@
             height: 38px;
             color: #2953a6;
             line-height: 38px;
-            text-align:center;
+            text-align: center;
             border: solid 1px #e5e5e5;
         }
-        #M-box a:nth-of-type(1){
+
+        #M-box a:nth-of-type(1) {
             width: 76px;
         }
-        #M-box a:nth-of-type(1):hover{
+
+        #M-box a:nth-of-type(1):hover {
             background-color: #efefef;
             color: #999999;
 
         }
-        #M-box a:nth-of-type(2){
+
+        #M-box a:nth-of-type(2) {
             width: 60px;
         }
-        #M-box a:nth-of-type(2):hover{
+
+        #M-box a:nth-of-type(2):hover {
             background-color: #efefef;
             color: #999999;
         }
-        #M-box a:nth-of-type(7):hover{
+
+        #M-box a:nth-of-type(7):hover {
             background-color: #efefef;
             color: #999999;
         }
-        #M-box a:nth-of-type(8):hover{
+
+        #M-box a:nth-of-type(8):hover {
             background-color: #efefef;
             color: #999999;
         }
-        #M-box a:nth-of-type(7){
+
+        #M-box a:nth-of-type(7) {
             width: 60px;
         }
-        #M-box a:nth-of-type(8){
+
+        #M-box a:nth-of-type(8) {
             width: 76px;
         }
 
@@ -69,10 +78,11 @@
             height: 38px;
             line-height: 38px;
             border: solid 1px #e5e5e5;
-            text-align:center;
+            text-align: center;
             width: 35px;
             display: inline-block;
             background-color: #efefef;
+           
         }
     </style>
 </head>
@@ -84,7 +94,7 @@
             <li>手机逛淘宝</li>
             <li>淘宝网首页</li>
             <li>我的淘宝<span class="iconfont icon-xiajiantou"></span></li>
-            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span>购物车<span
+            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span ><span class="ggoCar">购物车</span><span
                     style="color:#ff4400; margin-right:10px">1</span><span class="iconfont icon-xiajiantou"></span></li>
             <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-shoucang"></span>收藏夹</li>
             <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span>商品分类</li>
@@ -195,7 +205,8 @@
         str = str.substr(1);
         const arr = str.split('=');
 
-
+        
+        
         //发送ajax请求
 
         getAjax(1)
@@ -240,17 +251,17 @@
                     //实现分页显示
                     $('#M-box').pagination({
                         mode: 'fixed',
-                        pagination : res[0].sumPage,
-                        totalData : res[0].row, 
-                        current : res[0].page,  
-                        showData : 8,   
-                        activeCls : 'active',
+                        pagination: res[0].sumPage,
+                        totalData: res[0].row,
+                        current: res[0].page,
+                        showData: 8,
+                        activeCls: 'active',
                         coping: true,
                         homePage: '首页',
                         endPage: '末页',
                         prevContent: '上页',
                         nextContent: '下页',
-                        callback:function(result){
+                        callback: function (result) {
                             let p = result.getCurrent();
                             getAjax(p);
                         }
@@ -259,6 +270,27 @@
                 }
             })
         }
+
+        //头顶购物车直接前往购物车页
+        $('.ggoCar').css({
+            'cursor': 'pointer'
+        })
+        
+        $('.ggoCar').click(function(){
+            let cookieObj = getCookie(document.cookie);
+                if (cookieObj.login === undefined) {
+                    let bool = window.confirm('您还没有登录，点击确定，跳转登录页面');
+                    if (bool == true) {
+                        window.location.href = `./tow_login.html?${window.location.href}`;
+                    } else {
+                        return false;
+                    }
+                } else if (cookieObj.login === '1') {
+                    window.location.href = './tow_cart.html';
+                }
+        
+        })
+        
 
     </script>
 </body>

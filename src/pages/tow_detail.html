@@ -104,7 +104,7 @@
             <li>手机逛淘宝</li>
             <li>淘宝网首页</li>
             <li>我的淘宝<span class="iconfont icon-xiajiantou"></span></li>
-            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span>购物车<span
+            <li><span style="color:#ff4400" class="iconfont icon-gouwuche1"></span><span class="ggoCar">购物车</span><span
                     style="color:#ff4400; margin-right:10px">1</span><span class="iconfont icon-xiajiantou"></span></li>
             <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-shoucang"></span>收藏夹</li>
             <li><span style="margin-left: 10px; margin-right:10px" class="iconfont icon-xiajiantou"></span>商品分类</li>
@@ -148,24 +148,35 @@
                 result = res;
 
                 let str = '';
-                str = `<div id="left">
-                        <div class="box">
-                            <!-- 图片显示区域 -->
-                            <div class="show">
-                                <!-- 显示的图片 -->
-                                <img style="width:400px" src="${res.goods_big_logo}" alt="">
-                                <!-- 图片区域的遮盖层 -->
-                                <div class="mask"></div>
+                str = `
+                        <div id="left">
+                            <div id="zsz">
+                                <img style="width:420px ;height:420px" id="zszt"
+                                src="${res.goods_big_logo}">
                             </div>
-                            <!-- 图片列表区域 -->
-                            <ul class="list">
-                                <li class="active"><img src="${res.goods_small_logo}" alt=""></li>
-                                <li><img src="${res.goods_small_logo}" alt=""></li>
-                            </ul>
-                            <!-- 放大镜区域 -->
-                            <div class="glass"></div>
-                        </div>
-
+                            <div id="zsx">
+                            
+                                <div class="zsx">
+                                    <img class="zsxt"
+                                    src="${res.goods_small_logo}">
+                                </div>
+                                <div class="zsx">
+                                    <img class="zsxt"
+                                    src="${res.goods_small_logo}">
+                                </div>
+                                <div class="zsx">
+                                    <img class="zsxt"
+                                    src="${res.goods_small_logo}">
+                                </div>
+                                <div class="zsx">
+                                    <img class="zsxt"
+                                    src="${res.goods_small_logo}">
+                                </div>
+                                <div class="zsx">
+                                    <img class="zsxt"
+                                    src="${res.goods_small_logo}">
+                                </div>
+                            </div>
                         </div>
                         <div id="right">
                             <div class="xxms">
@@ -361,7 +372,34 @@
         $("#show-box").style.backgroundPosition = `${-2*left1}px ${-2*top1}px`;
         })
 
+
+
+
+
+
+
         
+         //头顶购物车直接前往购物车页
+         $('.ggoCar').css({
+            'cursor': 'pointer'
+        })
+        
+
+        //点击头顶购物车跳转
+        $('.ggoCar').click(function(){
+            let cookieObj = getCookie(document.cookie);
+                if (cookieObj.login === undefined) {
+                    let bool = window.confirm('您还没有登录，点击确定，跳转登录页面');
+                    if (bool == true) {
+                        window.location.href = `./tow_login.html?${window.location.href}`;
+                    } else {
+                        return false;
+                    }
+                } else if (cookieObj.login === '1') {
+                    window.location.href = './tow_cart.html';
+                }
+        
+        })
         
     </script>
 </body>
